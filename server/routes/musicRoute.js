@@ -51,8 +51,7 @@ router.route("/music").post( upload.single("sound"),(req,res) =>{
 })
 
 router.route("/music").get( (req,res) =>{
-    console.log("hello")
-    res
+    res.send("hello")
 })
 
 module.exports = router
