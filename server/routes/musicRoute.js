@@ -12,7 +12,7 @@ const mongoURI = `mongodb+srv://stav:${mongoPass}@cluster0.uj18p.mongodb.net/mus
 
 
 
-const conn = mongoose.createConnection(mongoURI)
+const conn = mongoose.createConnection(process.env.MONGODB_URI || mongoURI)
 
 
 //init gfs
@@ -55,3 +55,4 @@ router.route("/music").get( (req,res) =>{
 })
 
 module.exports = router
+
