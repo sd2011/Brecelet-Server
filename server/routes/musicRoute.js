@@ -47,7 +47,7 @@ const upload = multer({ storage });
 
 
 router.route("/music").post( upload.single("sound"),(req,res) =>{
-    res.json({ file: req.file });
+    res.send("hello")
 })
 
 router.route("/music").get( (req,res) =>{
