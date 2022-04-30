@@ -43,7 +43,8 @@ const storage = new GridFsStorage({
         });
     }
 });
-const upload = multer({ storage, limits: {fileSize: "50mb"} });
+const maxSize = 50 * 1024 * 1024
+const upload = multer({ storage, limits: {fileSize: maxSize} });
 
 
 
