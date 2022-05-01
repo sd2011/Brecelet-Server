@@ -73,7 +73,7 @@ router.route('/music/:filename').get((req, res) => {
 
             // Check if a music file
             console.log(file.contentType)
-            if (file.contentType === 'audio/mpeg' || file.contentType === 'audio/wave') {
+            if (file.contentType === 'audio/mpeg' || file.contentType === 'audio/wave'|| file.contentType === 'audio/wav') {
                 const readStream =  gridfsBucket.openDownloadStream(file._id);
                 readStream.pipe(res);
             } else {
