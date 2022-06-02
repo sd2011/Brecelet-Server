@@ -72,9 +72,12 @@ router.route('/music/:filename').get((req, res) => {
             }
 
             // Check if a music file
-            console.log(file.contentType)
             if (file.contentType === 'audio/mpeg' || file.contentType === 'audio/wave'|| file.contentType === 'audio/wav') {
-                const readStream =  gridfsBucket.openDownloadStream(file._id);
+                res.set("Accept-Ranges","bytes")
+                res.set("Content-Type","application/octet-stream")
+                res.set("Content-Length",file.length)
+
+                const readStream = gridfsBucket.openDownloadStream(file._id);
                 readStream.pipe(res);
             } else {
                 res.status(404).json({

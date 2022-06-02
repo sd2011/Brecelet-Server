@@ -3,7 +3,7 @@ const express = require('express')
 const bodyParser = require('body-parser');
 const app = express()
 const srcPath = path.join(__dirname, '..', '')
-const port = process.env.PORT || 3001
+const port = process.env.PORT || 3000
 const cors = require('cors')
 
 app.use(cors())
@@ -23,3 +23,5 @@ app.use("/", require("./routes/musicRoute"))
 app.listen(port, () => {
     console.log(`Server is up! ${port}`);
 });
+
+
